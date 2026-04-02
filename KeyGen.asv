@@ -28,7 +28,7 @@ for i=1:M*l
         for jj =1:M
            P_i3{ii,jj}= tem1{ii,jj}+tem2{ii,jj}+tem3{ii,jj};
            for k=1:l
-               P_i3{ii,jj}(k)= mod(P_i3{ii,jj}(k),q);
+               P_i3{ii,jj}(k)=
            end
         end
     end

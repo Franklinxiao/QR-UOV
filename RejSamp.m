@@ -1,8 +1,10 @@
 function seq = RejSamp(seed,t,n,q)
-%REJSAMP 此处显示有关此函数的摘要
-v=zeros(n);
+v=[];
 for j =1:t
-    v(j)=BitsToInteger(BytesToBits(bitand(seed(j),InterToBits(q))));%忽略了原文的一些写法
+    bit1=BytesToBits(seed(j));
+    bit2=IntegerToBits(q,8);
+    ba=bitand(bit1,bit2);
+    v(end+1)=BitsToInteger(ba);%忽略了原文的一些写法
 end
 k=n+1;
 while v(k)==q&&k<t+1
@@ -21,6 +23,6 @@ for j = 1:n
         end
     end
 end
-seq=v;
+seq=v(1:n);
 end
 

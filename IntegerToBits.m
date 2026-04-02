@@ -4,4 +4,5 @@ function bits = IntegerToBits(num, len)
         len = max(1, floor(log2(num)) + 1);
     end
     bits = bitget(num, len:-1:1);
+    bits =uint8(bits(:)');
 end
