@@ -1,7 +1,7 @@
 function bits = BytesToBits(bytes)
-    % 将字节数组转换为比特流
-    % 输入: bytes - uint8数组
-    % 输出: bits - uint8数组，值为0或1
-    bits = bitget(bytes(:), 8:-1:1)';
-    bits =uint8( bits(:)');
+   num_bytes = length(bytes);
+    bits = zeros(1, num_bytes * 8, 'uint8');
+    for i = 1:num_bytes
+        bits((i-1)*8 + 1 : i*8) = bitget(bytes(i), 8:-1:1);
+    end
 end

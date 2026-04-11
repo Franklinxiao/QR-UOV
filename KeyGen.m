@@ -1,4 +1,4 @@
-function [seed_pk,seed_sk,P_i3_list] = KeyGen(V,M,l,q,t1,t2,lamda,g)
+function [seed_pk,seed_sk,P_i3_list] = KeyGen(V,M,l,q,t1,t2,t3,lamda,g)
 rb=randi([0 1], 1, lamda);
 seed_pk=rb(1:lamda/2);
 seed_sk=rb(lamda/2+1:lamda);
@@ -27,9 +27,7 @@ for i=1:M*l
     for ii =1:M
         for jj =1:M
            P_i3{ii,jj}= tem1{ii,jj}+tem2{ii,jj}+tem3{ii,jj};
-           for k=1:l
-               P_i3{ii,jj}(k)= mod(P_i3{ii,jj}(k),q);
-           end
+           P_i3{ii,jj}= mod(P_i3{ii,jj}(k),q);
         end
     end
         
